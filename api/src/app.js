@@ -11,7 +11,7 @@ app.use(cookieParser());
 app.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://frontendc7-swtj.vercel.app/"
+    "https://frontendc7-darkroom.vercel.app/"
   );
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(
