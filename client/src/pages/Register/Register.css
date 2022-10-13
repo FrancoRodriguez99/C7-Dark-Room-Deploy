@@ -1,0 +1,255 @@
+.register-background {
+  padding-bottom: 320px;
+  background-color: white;
+}
+
+.register-total {
+  background-color: black;
+}
+
+.register_div {
+  height: 108px;
+}
+
+.register-general-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #1f1f1f;
+  margin-bottom: 20px;
+}
+
+.register-h1 {
+  color: white;
+  font-size: 32px;
+  font-weight: normal;
+  font-family: "Roboto", sans-serif;
+}
+
+.register-background-functional {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.login-user-register {
+  align-self: center;
+  width: 314px;
+  height: 43px;
+  color: #6c4494;
+  background-color: white;
+  border: 2px solid #3cff01;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+}
+
+.login-user-register_red {
+  align-self: center;
+  width: 314px;
+  height: 43px;
+  color: #6c4494;
+  background-color: white;
+  border: 2px solid #f50606;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.login-user-register_red:focus {
+  outline: none !important;
+  align-self: center;
+  width: 314px;
+  height: 43px;
+  color: #6c4494;
+  background-color: white;
+  border: 2px solid #f50606;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.register-register {
+  align-self: center;
+  width: 314px;
+  height: 43px;
+  background-color: #6c4494;
+  color: white;
+  border: 2px solid #6c4494;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+}
+
+.login-img {
+  margin-top: 10px;
+  margin-bottom: 60px;
+}
+
+.register-o {
+  color: black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+}
+
+.register-google {
+  align-self: center;
+  width: 314px;
+  height: 43px;
+  color: black;
+  background-color: transparent;
+  border: 2px solid black;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+}
+
+.register-fb {
+  align-self: center;
+  width: 314px;
+  height: 43px;
+  background-color: transparent;
+  color: black;
+  border: 2px solid black;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+}
+
+.register-help {
+  color: rgba(108, 68, 148, 1);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+  text-decoration: underline;
+}
+
+.register-help-password {
+  color: rgba(108, 68, 148, 1);
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+}
+
+.register-user {
+  align-self: center;
+  width: 314px;
+  height: 43px;
+  background-color: transparent;
+  color: black;
+  border: 2px solid black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+}
+
+.div-password-register {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-self: center;
+  width: 314px;
+}
+
+.div-user-register {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-self: center;
+  width: 314px;
+}
+
+.div-check-register {
+  display: flex;
+  flex-direction: row;
+  justify-self: center;
+  align-self: center;
+  width: 314px;
+  margin-bottom: 10px;
+}
+
+.login-password-register {
+  width: 314px;
+  height: 43px;
+  align-self: center;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.login-password-register_red {
+  outline: none !important;
+  width: 314px;
+  height: 43px;
+  align-self: center;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: left;
+  border-color: red;
+}
+
+.login-check-register {
+  color: black;
+  border: 1 solid black;
+}
+
+.label-user-register {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  color: black;
+  text-align: left;
+}
+
+.label-check-password-register {
+  font-size: 14px;
+  font-weight: normal;
+  font-family: "Roboto", sans-serif;
+  color: grey;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.login-user-register::placeholder {
+  font-size: 18px;
+  font-weight: normal;
+  font-family: "Roboto", sans-serif;
+  color: gray;
+}
+
+.label-password-register {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  color: black;
+  text-align: left;
+}
+
+.label-check-register {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  color: black;
+  text-align: left;
+  margin-left: 4px;
+}

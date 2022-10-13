@@ -1,0 +1,19 @@
+.general-header {
+    background-image: url("./../../assets/pexels-cody-king-1208074 2.jpg");
+    background-repeat: no-repeat;
+    max-width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center;
+}
+
+@media (min-width: 2000px) {
+    .general-header {
+        background-image: url("./../../assets/pexels-cody-king-1208074 2.jpg");
+        background-repeat: no-repeat;
+        max-width: 100%;
+        background-position: bottom;
+    }
+}

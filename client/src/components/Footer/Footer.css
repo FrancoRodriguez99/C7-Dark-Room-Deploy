@@ -1,0 +1,128 @@
+.footer-back {
+	padding-left: 30px;
+	padding-right: 30px;
+	background-color: black;
+	padding-bottom: 30px;
+	padding-top: 30px;
+}
+
+.footer {
+	max-width: 1440px;
+	height: auto;
+	color: white;
+	display: flex;
+	align-content: center;
+	flex-direction: row;
+	justify-content: space-around;
+
+
+    margin: 0 auto;
+}
+
+
+.footer-app-div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-top: 15px;
+}
+
+.footer-pp {
+	display: flex;
+	flex-direction: column;
+} 
+
+.footer-company {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+} 
+
+.footer-licency {
+	max-width: 1440px;
+	padding-top: 40px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 0 auto;
+}
+
+.footer-app-h1 {
+	padding-top: 10px;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.footer-total-h1 {
+	font-size: 24px;
+	font-weight: 600;
+	padding-bottom: 25px;
+}
+
+
+.footer-total-link {
+	padding-bottom: 20px;
+	color: white;
+	font-size: 16px;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+
+.footer-app-ios {
+	text-align: center;
+	color: white;
+	background-color: rgba(131, 6, 255, 1);
+	text-decoration: none;
+	font-size: 16px;
+	padding: 10px
+}
+
+.footer-app-android {
+	text-align: center;
+	color: white;
+	background-color: rgba(131, 6, 255, 1);
+	text-decoration: none;
+	font-size: 16px;
+	padding: 10px;
+}
+
+.footer-total-link-a {
+	text-align: center;
+	color: white;
+	background-color: rgba(131, 6, 255, 1);
+	text-decoration: none;
+	font-size: 16px;
+	padding: 10px
+}
+
+.footer-img {
+	margin: 0;
+	padding: 0;
+	width: 15px;
+	height: 15px;
+}
+
+.footer-img {
+	margin: 0;
+	padding: 0;
+	width: 15px;
+	height: 15px;
+}
+
+.footer-img-español {
+	margin: 0;
+	padding: 0;
+	width: 13px;
+	height: 13px;
+}
+
+.footer-total-link-licence {
+	padding-bottom: 20px;
+	color: white;
+	font-size: 16px;
+	font-weight: 600;
+	text-decoration: none;
+	padding-left: 70px;
+}

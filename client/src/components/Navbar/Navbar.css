@@ -1,0 +1,86 @@
+.navbar_component {
+  position: absolute;
+  width: 100%;
+  z-index: 7;
+}
+.navbar_component.active {
+  position: fixed;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.871);
+  /* transition: all 0.2s ease; */
+}
+.navbar_component.active > .navbar-general {
+  padding: 10px 20px;
+}
+
+.navbar-general {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  max-width: 1293px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navbar-container-img {
+  margin: 5px;
+}
+
+.navbar-container-link {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+}
+
+.navbar-link {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-icon {
+  align-items: center;
+}
+
+.navbar_divAvatar {
+  position: relative;
+  max-width: 40px;
+  max-height: 40px;
+  overflow: hidden;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.navbar_divAvatar > img {
+  max-width: 40px;
+  max-height: 40px;
+}
+
+.navbar_menuModal {
+  position: fixed;
+  display: none;
+  visibility: hidden;
+  flex-direction: column;
+
+  margin-right: 20px;
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.146);
+}
+
+.navbar_logOut {
+  cursor: pointer;
+  color: rgb(53, 53, 53);
+}
+.navbar_logOut:hover {
+  color: rgb(0, 0, 0);
+}
+
+.navbar_drawer:hover .navbar_menuModal {
+  visibility: visible;
+  display: flex;
+}
