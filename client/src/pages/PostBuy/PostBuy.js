@@ -7,7 +7,7 @@ export default function PostBuy() {
   useEffect(() => {
     async function t() {
       const a = await fetch(
-        `http://192.168.1.67:9000/api/mercadopago/checkPurchase/${payment_id}`,
+        `https://dark-room-api.onrender.com/api/mercadopago/checkPurchase/${payment_id}`,
         {
           method: "GET",
         }
