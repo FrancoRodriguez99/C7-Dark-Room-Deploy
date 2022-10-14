@@ -28,10 +28,12 @@ app.use("/api", routes);
 
 app.get("/", (req, res) => {
   res.json({
-    users: "https://dark-room-api.onrender.com/api/users/allUserDefault",
+    users:
+      "https://deploy-api-c7-dark-room.onrender.com/api/users/allUserDefault",
     photographers:
-      "https://dark-room-api.onrender.com/api/users/allUserPhotographer",
-    publications: "https://dark-room-api.onrender.com/api/publication",
+      "https://deploy-api-c7-dark-room.onrender.com/api/users/allUserPhotographer",
+    publications:
+      "https://deploy-api-c7-dark-room.onrender.com/api/publication",
   });
 });
 
