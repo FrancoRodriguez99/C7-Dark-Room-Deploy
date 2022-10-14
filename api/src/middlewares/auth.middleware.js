@@ -17,7 +17,11 @@ const verifyToken = async (req, res, next) => {
   } catch (error) {
     console.log(token);
     console.log(error);
-    res.clearCookie("jwt");
+    res.clearCookie("jwt", {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+    });
     return res.status(401).json({ message: "Unauthorized!" });
   }
 };

@@ -101,7 +101,11 @@ const singIn = async (req, res) => {
 };
 
 const logOut = async (req, res) => {
-  const token = res.clearCookie("jwt");
+  const token = res.clearCookie("jwt", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "None",
+  });
   if (!token) {
     return res.status(404).send("No hay token");
   }
