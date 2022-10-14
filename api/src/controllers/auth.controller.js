@@ -80,9 +80,9 @@ const singIn = async (req, res) => {
           expires: new Date(
             Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000
           ),
-          //httpOnly: true,
-          // secure: true,
-          // sameSite: 'lax'
+          httpOnly: true,
+          secure: true,
+          sameSite: "None",
         };
 
         res.cookie("jwt", token, cookies);
