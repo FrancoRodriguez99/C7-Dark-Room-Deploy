@@ -1,9 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import {
-  loginAction,
-  userCurrentAction,
-} from "../../redux/actions/photosActions";
+import { loginAction, userCurrentAction, registerUserGoogle } from "../../redux/actions/photosActions";
 import "./Login.css";
 import LogoLogIn from "./../../assets/logo-login.png";
 import Footer from "../../components/Footer/Footer";
@@ -36,8 +33,6 @@ export default function LogIn() {
     error: { location: "", value: "" },
   });
 
-  console.log(loginForm.error, "error");
-
   const handleChange = (e) => {
     const value = e.target.value;
     setLoginForm({
@@ -50,7 +45,8 @@ export default function LogIn() {
     e.preventDefault();
 
     const a = await dispatch(loginAction(loginForm));
-    if (a.loged) {
+
+    if (a.loged === "true") {
       dispatch(userCurrentAction());
     } else {
       if (a.e === "emptyEmail" || a.e === "emptyPassword")
@@ -61,11 +57,12 @@ export default function LogIn() {
             value: "Por Favor Ingrese dato",
           },
         });
-      else
+      else {
         setLoginForm({
           ...loginForm,
           error: { location: "both", value: "null" },
         });
+      }
     }
   };
 
@@ -81,8 +78,10 @@ export default function LogIn() {
   };
 
   function responseGoogle(a) {
-    console.log(a);
+    const value = { email: a.profileObj.email }
+    dispatch(registerUserGoogle(value))
   }
+
   function responseFacebook(a) {
     console.log(a);
   }
@@ -106,6 +105,7 @@ export default function LogIn() {
           <div>
             <img className="login-img" src={LogoLogIn} alt="asdas" />
           </div>
+
           <div className="div-user">
             <label className="label-user">Usuario o email</label>
             <input
@@ -116,11 +116,7 @@ export default function LogIn() {
               name="email"
               value={loginForm.email}
               style={{
-                background:
-                  loginForm.error.location === "email" ||
-                  loginForm.error.location === "both"
-                    ? "red"
-                    : "white",
+                borderColor: loginForm.error.location === "email" || loginForm.error.location === "both" ? "red" : "black",
               }}
             />
           </div>
@@ -134,57 +130,25 @@ export default function LogIn() {
               name="password"
               value={loginForm.password}
               style={{
-                background:
-                  loginForm.error.location === "password" ||
-                  loginForm.error.location === "both"
-                    ? "red"
-                    : "white",
+                borderColor: loginForm.error.location === "password" || loginForm.error.location === "both" ? "red" : "white",
               }}
             />
-            {passwordYes === true ? (
-              <img
-                onClick={yesPassword}
-                src={OjoAbierto}
-                className="eyes-password"
-                alt="asdas"
-              ></img>
-            ) : (
-              <img
-                onClick={yesPassword}
-                src={OjoCerrado}
-                className="eyes-password"
-                alt="asdas"
-              ></img>
-            )}
-            <label className="label-check-password">Mas de 6 caracteres</label>
+            {passwordYes === true ? <img onClick={yesPassword} src={OjoAbierto} className="eyes-password" alt="asdas"></img> : <img onClick={yesPassword} src={OjoCerrado} className="eyes-password" alt="asdas"></img>}
           </div>
           <div className="div-check">
-            <input className="login-check" type="checkbox" />
-            <label className="label-check">Recordar Contraseña</label>
+            {/* <input className="login-check" type="checkbox" />
+             <label className="label-check">Recordar Contraseña</label>  Hacer esto de forma segura es imposible... Si tienen ganas metanlo en localstorage y a la mierda pero re inseguro*/}
           </div>
           <button className="login-login">Iniciar sessión</button>
           <p className="login-o">o</p>
           <div style={{ width: "300px", alignSelf: "center" }}>
-            <GoogleLogin
-              clientId={process.env.REACT_APP_GOOGLE_ID}
-              buttonText="Login"
-              onSuccess={responseGoogle}
-              onFailure={responseGoogle}
-              cookiePolicy={"single_host_origin"}
-            />
+            <GoogleLogin clientId={process.env.REACT_APP_GOOGLE_ID} buttonText="Login" onSuccess={responseGoogle} onFailure={responseGoogle} cookiePolicy={"single_host_origin"} />
           </div>
-          <FacebookLogin
-            appId={process.env.REACT_APP_FACEBOOK_ID}
-            autoLoad={false}
-            fields="name,email,picture"
-            onClick={componentClicked}
-            callback={responseFacebook}
-          />
+          {/* <FacebookLogin appId={process.env.REACT_APP_FACEBOOK_ID} autoLoad={false} fields="name,email,picture" onClick={componentClicked} callback={responseFacebook} /> */}
           <Link className="login-help" to="/users">
             Registrarse
           </Link>
           <p className="login-help-password">¿Te olvidaste la contraseña?</p>
-          <p className="login-help">¿Necesitas ayuda?</p>
         </form>
 
         {/* <div className="login-background-functional">

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { getProfileDetails } from "../../redux/actions/photosActions";
 import { cleanProfileDetails } from "../../redux/slices/profileSlice";
 import Navbar from "../../components/Navbar/Navbar";
@@ -16,9 +16,12 @@ import uploadIcon from "../../assets/iTETAH.tif_1_.png";
 import nothing from "../../assets/Group 18.png";
 import HomeCards from "../../components/HomeCards/HomeCards";
 
+import "./Profije.css";
+
 export default function Profile() {
   const { id } = useParams();
   const dispatch = useDispatch();
+  let navigate = useNavigate();
   const details = useSelector((state) => state.profile.userData);
   useEffect(() => {
     dispatch(getProfileDetails(id));
@@ -113,6 +116,7 @@ export default function Profile() {
 
                       /* Inside auto layout */
                     }}
+                    onClick={() => navigate("/profileEdit/" + you._id)}
                   >
                     Editar Perfil
                   </div>
@@ -124,8 +128,7 @@ export default function Profile() {
                 width: "1260px",
                 height: "357px",
 
-                background:
-                  "linear-gradient(0deg, #D9D9D9 20%, rgba(217, 217, 217, 0) 87.27%)",
+                background: "linear-gradient(0deg, #D9D9D9 20%, rgba(217, 217, 217, 0) 87.27%)",
               }}
             >
               <div>
@@ -157,13 +160,11 @@ export default function Profile() {
                     color: "#686868",
                   }}
                 >
-                  {details.userType === "userPhotographer"
-                    ? "Fotógrafo"
-                    : "Amante de las Fotos!"}
+                  {details.userType === "userPhotographer" ? "Fotógrafo" : "Amante de las Fotos!"}
                 </div>
-                <div style={{ marginLeft: "30px" }}>
+                {/* <div style={{ marginLeft: "30px" }}>
                   Argentina, Buenos Aires, CABA.
-                </div>
+                </div> */}
               </div>
               <div
                 style={{
@@ -294,10 +295,7 @@ export default function Profile() {
                     }}
                     onClick={() => setGalery("galeria")}
                   >
-                    <img
-                      alt="galeria"
-                      src={galery === "galeria" ? galeryIcon : galeryIconBlack}
-                    ></img>
+                    <img alt="galeria" src={galery === "galeria" ? galeryIcon : galeryIconBlack}></img>
                     <div
                       style={{
                         fontFamily: "Roboto",
@@ -330,10 +328,7 @@ export default function Profile() {
                     }}
                     onClick={() => setGalery("liked")}
                   >
-                    <img
-                      alt="gustan"
-                      src={galery === "liked" ? gustanIconWhite : gustanIcon}
-                    ></img>
+                    <img alt="gustan" src={galery === "liked" ? gustanIconWhite : gustanIcon}></img>
                     <div
                       style={{
                         fontFamily: "Roboto",
@@ -366,12 +361,7 @@ export default function Profile() {
                     }}
                     onClick={() => setGalery("saved")}
                   >
-                    <img
-                      alt="bookmark"
-                      src={
-                        galery === "saved" ? bookmarkIcon : bookmarkIconBlack
-                      }
-                    ></img>{" "}
+                    <img alt="bookmark" src={galery === "saved" ? bookmarkIcon : bookmarkIconBlack}></img>{" "}
                     <div
                       style={{
                         fontFamily: "Roboto",
@@ -404,7 +394,7 @@ export default function Profile() {
                     cursor: "pointer",
                   }}
                 >
-                  <Link to="/publish">
+                  <Link to="/publish" className="profile-btn-upload-img">
                     <div
                       style={{
                         display: "flex",

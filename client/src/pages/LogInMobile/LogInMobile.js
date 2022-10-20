@@ -11,10 +11,8 @@ import { GoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
 import { useSearchParams } from "react-router-dom";
 import { logOut } from "../../redux//slices/usersLogedSlice";
-import {
-  userCurrentAction,
-  logoutAction,
-} from "../../redux/actions/photosActions";
+import { userCurrentAction, logoutAction } from "../../redux/actions/photosActions";
+import { Link } from "react-router-dom";
 
 export default function LogInMobile() {
   const [passwordYes, setPasswordYes] = useState(false);
@@ -27,10 +25,7 @@ export default function LogInMobile() {
   useEffect(() => {
     async function t() {
       const a = await dispatch(userCurrentAction());
-      if (
-        a.payload.message === "No token provided" ||
-        a.payload.message === "Unauthorized!"
-      ) {
+      if (a.payload.message === "No token provided" || a.payload.message === "Unauthorized!") {
         dispatch(logOut());
       }
     }
@@ -50,6 +45,7 @@ export default function LogInMobile() {
   const [loginForm, setLoginForm] = useState({
     email: "",
     password: "",
+    error: { location: "", value: "" },
   });
 
   const handleChange = (e) => {
@@ -63,24 +59,26 @@ export default function LogInMobile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      //this dispatch makes no sense, dispatchs are made to interact whit redux, this does not. I just used because it was like that in the login
-      const a = await dispatch(loginAction(loginForm));
-      if (a.loged) {
-        window.location.href =
-          "https://auth.expo.io/@juanfranco/Dark-Room?type=success&state=" +
-          state +
-          "&jwt=" +
-          a.jwt;
-      } else {
-        //aca va el alert de que algun dato que pusiste esta mal
+    //this dispatch makes no sense, dispatchs are made to interact whit redux, this does not. I just used because it was like that in the login
+    const a = await dispatch(loginAction(loginForm));
+    if (a.loged === "true") {
+      window.location.href = "https://auth.expo.io/@juanfranco/Dark-Room?type=success&state=" + state + "&jwt=" + a.jwt;
+    } else {
+      if (a.e === "emptyEmail" || a.e === "emptyPassword")
+        setLoginForm({
+          ...loginForm,
+          error: {
+            location: a.e === "emptyEmail" ? "email" : "password",
+            value: "Por Favor Ingrese dato",
+          },
+        });
+      else {
+        setLoginForm({
+          ...loginForm,
+          error: { location: "both", value: "null" },
+        });
       }
-    } catch (error) {}
-
-    setLoginForm({
-      email: "",
-      password: "",
-    });
+    }
   };
 
   const elementPassword = useRef(null);
@@ -110,12 +108,9 @@ export default function LogInMobile() {
 
   async function handleOkAuth() {
     const a = await dispatch(userCurrentAction());
-
-    window.location.href =
-      "https://auth.expo.io/@juanfranco/Dark-Room?type=success&state=" +
-      state +
-      "&jwt=" +
-      a.payload.token;
+    if (a.loged) {
+      window.location.href = "https://auth.expo.io/@juanfranco/Dark-Room?type=success&state=" + state + "&jwt=" + a.payload.token;
+    }
   }
 
   return (
@@ -138,10 +133,7 @@ export default function LogInMobile() {
               alignItems: "center",
             }}
           >
-            <img
-              src={currentUser.currentUser.avatar}
-              style={{ width: 150, height: 150 }}
-            ></img>
+            <img src={currentUser.currentUser.avatar} style={{ width: 150, height: 150 }}></img>
             <div>{currentUser.currentUser.email}</div>
             <br />
             <button className="btn-buy" onClick={() => handleOkAuth()}>
@@ -166,6 +158,9 @@ export default function LogInMobile() {
                 onChange={handleChange}
                 name="email"
                 value={loginForm.email}
+                style={{
+                  borderColor: loginForm.error.location === "email" || loginForm.error.location === "both" ? "red" : "black",
+                }}
               />
             </div>
             <div className="div-password">
@@ -177,65 +172,26 @@ export default function LogInMobile() {
                 onChange={handleChange}
                 name="password"
                 value={loginForm.password}
+                style={{
+                  borderColor: loginForm.error.location === "password" || loginForm.error.location === "both" ? "red" : "white",
+                }}
               />
-              {passwordYes === true ? (
-                <img
-                  onClick={yesPassword}
-                  src={OjoAbierto}
-                  className="eyes-password"
-                  alt="asdas"
-                ></img>
-              ) : (
-                <img
-                  onClick={yesPassword}
-                  src={OjoCerrado}
-                  className="eyes-password"
-                  alt="asdas"
-                ></img>
-              )}
-              <label className="label-check-password">
-                Mas de 6 caracteres
-              </label>
+              {passwordYes === true ? <img onClick={yesPassword} src={OjoAbierto} className="eyes-password" alt="asdas"></img> : <img onClick={yesPassword} src={OjoCerrado} className="eyes-password" alt="asdas"></img>}
             </div>
-            <div className="div-check">
-              <input className="login-check" type="checkbox" />
-              <label className="label-check">Recordar Contraseña</label>
-            </div>
+
             <button className="login-login">Iniciar sessión</button>
             <p className="login-o">o</p>
             <div style={{ width: "300px", alignSelf: "center" }}>
-              <GoogleLogin
-                clientId={process.env.REACT_APP_GOOGLE_ID}
-                buttonText="Login"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-                cookiePolicy={"single_host_origin"}
-              />
+              <GoogleLogin clientId={process.env.REACT_APP_GOOGLE_ID} buttonText="Login" onSuccess={responseGoogle} onFailure={responseGoogle} cookiePolicy={"single_host_origin"} />
             </div>
-            <FacebookLogin
-              appId={process.env.REACT_APP_FACEBOOK_ID}
-              autoLoad={false}
-              fields="name,email,picture"
-              onClick={componentClicked}
-              callback={responseFacebook}
-            />
+            <FacebookLogin appId={process.env.REACT_APP_FACEBOOK_ID} autoLoad={false} fields="name,email,picture" onClick={componentClicked} callback={responseFacebook} />
             <p className="login-help-password">¿Te olvidaste la contraseña?</p>
-            <p className="login-help">¿Necesitas ayuda?</p>
+
+            <Link className="login-register-after" to="/registerMobile">
+              Registrarme
+            </Link>
           </form>
         )}
-
-        {/* <div className="login-background-functional">
-        <button className='login-register-after'>Registrarme</button>
-        <button 
-          className='login-login' 
-          onClick={loginFunctional}>
-          Iniciar sessión
-        </button>
-        <p className='login-o'>o</p>
-        <button className='login-google'>Continuar con Google</button>
-        <button className='login-fb'>Continuar con Facebook</button>
-        <p className='login-help'>¿Necesitas ayuda?</p>
-      </div> */}
       </div>
       <Footer />
     </div>

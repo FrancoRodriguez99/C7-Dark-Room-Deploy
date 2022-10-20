@@ -5,8 +5,8 @@ import Group from "./../../assets/Group.png";
 import "./Navbar.css";
 import { logOut } from "../../redux//slices/usersLogedSlice";
 // import Notificaciones from './../../assets/Vector.png';
-// import Subir from './../../assets/iTETAH.tif_1_.png';
-// import Carrito from './../../assets/carrito.png';
+ import Subir from './../../assets/iTETAH.tif_1_.png';
+ import Carrito from './../../assets/carrito.png';
 
 export default function Navbar() {
   const dispatch = useDispatch();
@@ -34,13 +34,15 @@ export default function Navbar() {
         </Link>
 
         <div className="navbar-container-link">
-          <Link className="navbar-link">Categorias</Link>
+          <Link className="navbar-link" to="/retos">
+            Retos
+          </Link>
           <Link className="navbar-link" to="/publish">
-            Subir
+          <img src={Subir} />&#160;&#160;Subir
           </Link>
 
           <Link to="/cart" className="navbar-link">
-            Carrito
+            <img src={Carrito} />&#160;&#160;Carrito
           </Link>
 
           {currentUser.email ? (
@@ -50,11 +52,21 @@ export default function Navbar() {
               </div>
               <div>
                 <div className="navbar_menuModal">
-                  <Link to={`/profile/${currentUser._id}`} className="">
-                    ver perfil
+                  <Link to={`/profile/${currentUser._id}`} className="navbar_perfil">
+                    Ver Perfil
                   </Link>
+                  {currentUser.userType === "userPhotographer" || currentUser.userType === "owner" || currentUser.userType === "admin" ? (
+                    <Link to={`/solds`} className="navbar_perfil">
+                      Ventas
+                    </Link>
+                  ) : null}
+                  {currentUser.userType === "owner" || currentUser.userType === "admin" ? (
+                    <Link to={"/admin"} className="navbar_perfil">
+                      Panel de Admin
+                    </Link>
+                  ) : null}
                   <span className="navbar_logOut" onClick={handleLogout}>
-                    cerrar sesion
+                    Cerrar Sesion
                   </span>
                 </div>
               </div>

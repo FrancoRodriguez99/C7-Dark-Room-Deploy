@@ -44,8 +44,6 @@ export default function UserScreen() {
           >
             Iniciar sessión
           </Link>
-
-          <p className="login-help">¿Necesitas ayuda?</p>
         </div>
       </div>
       <Footer />

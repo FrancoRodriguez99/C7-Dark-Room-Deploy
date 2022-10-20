@@ -1,0 +1,169 @@
+#container_retos_navbar {
+  padding-top: 2em;
+  background: #212121;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+#navbar_retos {
+  height: 152px;
+  width: 100%;
+  background: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#buscador_retos {
+  display: flex;
+}
+
+.retos_buscar {
+  box-sizing: border-box;
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 10px;
+
+  width: 94px;
+  height: 39px;
+
+  background: rgba(53, 53, 53, 0.4);
+  border: 2px solid #ffffff;
+  border-radius: 20px;
+  color: white;
+  /* Inside auto layout */
+  cursor: pointer;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+#input_retos_buscador {
+  /* Auto layout */
+
+  align-items: center;
+  padding: 10px 14px 10px 20px;
+
+  width: 554px;
+  height: 40px;
+
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 20px;
+
+  outline: none;
+  /* Inside auto layout */
+}
+
+#label_buscador_retos {
+  width: 554px;
+  height: 19px;
+  left: 551px;
+  top: 154px;
+  margin-bottom: 2em;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+
+  letter-spacing: 0.1em;
+
+  color: #d1d1d1;
+}
+
+.retos_boton_selected {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 150px;
+  color: #ffffff;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 23px;
+  background: #6c4494;
+
+  width: 158px;
+  height: 43px;
+  left: 384px;
+  top: 270px;
+
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 20px;
+}
+
+.retos_boton {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+
+  /* 2Fondo */
+
+  color: #000000;
+}
+
+#labels_retos {
+  display: flex;
+  width: 1250px;
+  justify-content: space-around;
+  border-bottom: 1px solid #000000;
+  padding-bottom: 1em;
+}
+
+#label_retos_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 53px;
+}
+
+.allRetos_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#retos_flecha_ver_mas {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 11px 30px;
+  gap: 15px;
+  margin: 1em;
+
+  width: 163.06px;
+  height: 45px;
+
+  /* Acento */
+  color: white;
+
+  background: #6c4494;
+  box-shadow: 2px 10px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+#retos_contenedor_de_la_flechita_del_orto {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -143,9 +143,9 @@
 }
 
 .unfollowed{
-    background-color: green;
+    background-color: #6c4494;
     color: white;
-    border: 2px solid green;
+    border: 2px solid #6c4494;
 }
 
 .btn-buy {

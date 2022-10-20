@@ -6,6 +6,7 @@ const initialState = {
     favorites: [],
     followers: [],
     liked: [],
+    bought: [],
   },
   loged: false,
 };
@@ -15,11 +16,7 @@ const userLoged = createSlice({
   initialState,
   reducers: {
     getUserLoged: (state, { payload }) => {
-      console.log(payload);
-      state.currentUser =
-        payload.message === "No token provided"
-          ? initialState.currentUser
-          : payload.userLoged;
+      state.currentUser = payload.message === "No token provided" ? initialState.currentUser : payload.userLoged;
       state.loged = payload.message === "No token provided" ? false : true;
     },
     logOut: (state, { payload }) => {

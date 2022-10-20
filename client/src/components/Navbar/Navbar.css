@@ -1,7 +1,7 @@
 .navbar_component {
-  position: absolute;
+  position: relative;
   width: 100%;
-  z-index: 7;
+  z-index: 1;
 }
 .navbar_component.active {
   position: fixed;
@@ -66,7 +66,7 @@
   flex-direction: column;
 
   margin-right: 20px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(999, 999, 999, 0.9);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.146);
@@ -74,13 +74,26 @@
 
 .navbar_logOut {
   cursor: pointer;
-  color: rgb(53, 53, 53);
+  color: black;
+  text-decoration: none;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  font-weight: bold;
 }
-.navbar_logOut:hover {
-  color: rgb(0, 0, 0);
+
+.navbar_perfil {
+  cursor: pointer;
+  color: rgb(108, 68, 148);
+  text-decoration: none;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  font-weight: bold;
 }
 
 .navbar_drawer:hover .navbar_menuModal {
   visibility: visible;
   display: flex;
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
 }

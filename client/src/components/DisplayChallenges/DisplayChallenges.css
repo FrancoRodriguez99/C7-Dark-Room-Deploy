@@ -1,0 +1,144 @@
+.container_reto {
+  display: flex;
+  margin-top: 1em;
+  height: 451px;
+}
+
+.winners_container_reto {
+  width: 504px;
+  height: 451px;
+
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.reto_winner_so_far {
+  margin-top: 1em;
+  width: 461px;
+  height: 285px;
+  cursor: pointer;
+  border-radius: 20px;
+  position: relative;
+}
+
+.almost_winners_reto {
+  width: 100px;
+  height: 124px;
+  border-radius: 20px;
+  margin: 0.5em;
+  cursor: pointer;
+}
+
+.reto_datos_generales {
+  width: 547px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 1em;
+}
+
+.logo_retos_data {
+  width: 104px;
+  height: 103px;
+}
+
+.participa_reto {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 42px;
+
+  color: #000000;
+}
+
+.participa_reto_titulo {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+
+  color: #000000;
+}
+
+.quien_gana_reto {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 28px;
+
+  color: #000000;
+}
+
+.recompensa_reto {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+
+  color: #000000;
+}
+
+.fechas_container_reto {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fechas_texto_reto {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 23px;
+
+  color: #000000;
+}
+
+.fechas_texto_reto_termino {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 23px;
+
+  color: #ce3636;
+}
+
+.ganador_del_reto_likes {
+  position: absolute;
+  width: 131px;
+  height: 96px;
+  top: 0;
+
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56px;
+
+  color: #ffffff;
+}
+
+.ganador_del_reto {
+  float: left;
+  position: absolute;
+  bottom: 0;
+
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56px;
+
+  /* Fondo */
+
+  color: #ffffff;
+}

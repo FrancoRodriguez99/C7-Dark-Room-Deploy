@@ -3,20 +3,25 @@ import CircleLoader from "react-spinners/CircleLoader";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Publish from "./pages/Publish/Publish";
-import Cart from "./pages/Cart";
+import Cart from "./pages/Cart/Cart";
 import Register from "./pages/Register/Register";
 import Users from "./pages/Users/Users";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { localStorageCart } from "./redux/slices/cartSlice";
 import LogIn from "./pages/LogIn/LogIn";
-import Details from "./pages/Details/Details";
 import Profile from "./pages/Profile/Profile";
+import ProfileEdit from "./pages/ProfileEdit/ProfileEdit";
 import PostBuy from "./pages/PostBuy/PostBuy";
 import { userCurrentAction, logoutAction } from "./redux/actions/photosActions";
 import { logOut } from "./redux//slices/usersLogedSlice";
 import LogInMobile from "./pages/LogInMobile/LogInMobile";
 import UserScreen from "./pages/UserScreen/UserScreen";
+import Retos from "./pages/Retos/Retos";
+import AddReto from "./components/AddReto/AddReto";
+import RegisterMobile from "./pages/RegisterMobile/RegisterMobile";
+import Solds from "./pages/Solds/Solds";
+import Admin from "./pages/Admin/Admin";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -31,10 +36,7 @@ function App() {
   useEffect(() => {
     async function t() {
       const a = await dispatch(userCurrentAction());
-      if (
-        a.payload.message === "No token provided" ||
-        a.payload.message === "Unauthorized!"
-      ) {
+      if (a.payload.message === "No token provided" || a.payload.message === "Unauthorized!") {
         dispatch(logOut());
         dispatch(logoutAction());
       }
@@ -61,13 +63,18 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
-          <Route path="/details/:id" element={<Details />}></Route>
           <Route path="/profile/:id" element={<Profile />}></Route>
-
           {currentUser.loged ? (
             <>
               <Route path="/publish" element={<Publish />}></Route>
               <Route path="/postBuy" element={<PostBuy />}></Route>
+              <Route path="/profileEdit/:id" element={<ProfileEdit />}></Route>
+              {currentUser.currentUser.userType === "userPhotographer" || currentUser.currentUser.userType === "owner" || currentUser.currentUser.userType === "admin" ? (
+                <>
+                  <Route path="/solds" element={<Solds />}></Route>
+                  <Route path="/aceptarPago" element={<Solds />}></Route>
+                </>
+              ) : null}
             </>
           ) : (
             <>
@@ -79,7 +86,13 @@ function App() {
               <Route path="/postBuy" element={<LogIn />}></Route>
             </>
           )}
+
+          {currentUser.currentUser.userType === "admin" || currentUser.currentUser.userType === "owner" ? <Route path="/admin" element={<Admin />}></Route> : null}
+
           <Route path="/loginMobile" element={<LogInMobile />}></Route>
+          <Route path="/registerMobile" element={<RegisterMobile />}></Route>
+          <Route path="/retos" element={<Retos />}></Route>
+          <Route path="/addReto" element={<AddReto />}></Route>
           <Route path="*" element={<Home />}></Route>
         </Routes>
       )}

@@ -125,7 +125,7 @@ const googleSingUp = async (req, res) => {
     const user = await userSchema.findOne({ email: email });
 
     if (!user) {
-      const passwordHash = await bcrypt.hash(process.env.LA_MAMA_DE_LA_MAMA, 10);
+      const passwordHash = await bcrypt.hash("uhjfghj", 10);
 
       const newUser = await userSchema({
         avatar: avatar || "https://www.seekpng.com/png/full/847-8474751_download-empty-profile.png",

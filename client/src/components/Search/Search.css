@@ -73,12 +73,12 @@
     background-color: #ffffff;
     position: absolute;
     margin-left: 9px;
-    top: 264px;
+    top: 383px;
     width: 610px;
-    height: 280px;
+    height: 250px;
     border-radius: 0 0 10px  10px;
     border: none;
-    z-index: 2;
+    z-index: 0;
 }
 
 .search-div-button {
@@ -88,7 +88,6 @@
     font-size: 16px;
     color: #6C4494;
     font-weight:  600;
-    cursor:pointer;
 }
 
 .search-div-button-img {
@@ -101,7 +100,6 @@
     font-size: 16px;
     color: #6C4494;
     font-weight:  600;
-    cursor:pointer;
 }
 
 .search-hr {

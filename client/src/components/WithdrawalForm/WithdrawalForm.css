@@ -1,0 +1,8 @@
+.whidrawlModal {
+  display: flex;
+  flex-direction: column;
+}
+
+.formdiv {
+  margin: 1em;
+}

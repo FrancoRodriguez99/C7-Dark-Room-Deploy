@@ -10,11 +10,5 @@ export default function TotalCards() {
   useEffect(() => {
     dispatch(getAllPhotosData());
   }, [dispatch]);
-  return (
-    <div className="galery-container">
-      {photos.length > 0
-        ? photos.map((x) => <HomeCards x={x} key={x._id} />)
-        : null}
-    </div>
-  );
+  return <div className="galery-container">{photos.length > 0 ? photos.map((x) => <HomeCards x={x} key={x._id} />) : null}</div>;
 }
