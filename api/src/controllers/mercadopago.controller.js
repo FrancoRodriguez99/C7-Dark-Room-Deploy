@@ -28,9 +28,9 @@ const buy = async (req, res) => {
     auto_return: "approved",
     external_reference: data.userId,
     back_urls: {
-      success: "http://localhost:3000/postBuy",
-      pending: "http://localhost:3000/postBuy",
-      failure: "http://localhost:3000/postBuy",
+      success: "https://darkroom-client.vercel.app/postBuy",
+      pending: "https://darkroom-client.vercel.app/postBuy",
+      failure: "https://darkroom-client.vercel.app/postBuy",
     },
   };
 
