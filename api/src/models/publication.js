@@ -18,15 +18,18 @@ const publicationSchema = mongoose.Schema(
       type: String,
       require: true,
     },
-    likes: {
-      type: mongoose.Types.ObjectId,
-      ref: "users",
-    },
+    likes: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: "users",
+      },
+    ],
     downloads: {
       type: Number,
     },
     price: {
       type: Number,
+      default: 0,
     },
     pay: {
       type: Boolean,
@@ -35,12 +38,22 @@ const publicationSchema = mongoose.Schema(
       type: mongoose.Types.ObjectId,
       ref: "user",
     },
-    challenge: [
+    sales: [
       {
         type: mongoose.Types.ObjectId,
-        ref: "challenges",
+        ref: "shoppingSchema",
       },
     ],
+    challengeLikes: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: "users",
+      },
+    ],
+    challenge: {
+      type: mongoose.Types.ObjectId,
+      ref: "challenges",
+    },
   },
   { timestamps: true, versionKey: false }
 );

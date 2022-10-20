@@ -1,10 +1,10 @@
-const app = require("./src/app");
-require("./mongo");
+const app = require('./src/app')
+require('./mongo')
 
-const { PORT } = process.env;
+const {PORT} = process.env
 
 const server = app.listen(PORT, () => {
-  console.log(`Server listening on http://192.168.1.67:${PORT}/`);
+  console.log(`Server listening on http://localhost:${PORT}/`);
 });
 
-module.exports = server;
+module.exports = server

@@ -3,7 +3,10 @@ const mongoose = require("mongoose");
 const shoppingSchema = mongoose.Schema({
   photo_id: {
     type: mongoose.Types.ObjectId,
-    ref: "challenges",
+    ref: "publication",
+  },
+  transaction_id: {
+    type: String,
   },
   photo_url: {
     type: String,
@@ -13,7 +16,7 @@ const shoppingSchema = mongoose.Schema({
   },
   buyer_id: {
     type: mongoose.Types.ObjectId,
-    ref: "challenges",
+    ref: "users",
   },
   payment_status: {
     type: String,
@@ -23,6 +26,10 @@ const shoppingSchema = mongoose.Schema({
   },
   payment_method: {
     type: String,
+  },
+  cashed_out: {
+    type: Boolean,
+    default: false,
   },
 });
 

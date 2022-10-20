@@ -9,10 +9,7 @@ const app = express();
 app.use(cookieParser());
 
 app.use((req, res, next) => {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://frontendc7-darkroom.vercel.app"
-  );
+  res.header("Access-Control-Allow-Origin", req.headers.origin);
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(
     "Access-Control-Allow-Headers",
@@ -28,12 +25,9 @@ app.use("/api", routes);
 
 app.get("/", (req, res) => {
   res.json({
-    users:
-      "https://deploy-api-c7-dark-room.onrender.com/api/users/allUserDefault",
-    photographers:
-      "https://deploy-api-c7-dark-room.onrender.com/api/users/allUserPhotographer",
-    publications:
-      "https://deploy-api-c7-dark-room.onrender.com/api/publication",
+    users: "http://localhost:9000/api/users/allUserDefault",
+    photographers: "http://localhost:9000/api/users/allUserPhotographer",
+    publications: "http://localhost:9000/api/publication",
   });
 });
 

@@ -21,6 +21,12 @@ const user = mongoose.Schema(
       type: String,
       required: true,
     },
+    bought: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: "publication",
+      },
+    ],
     password: {
       type: String,
       required: true,
